@@ -1,15 +1,25 @@
 {
-  "name": "test_package",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "test-merge-props",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "author": "Kirill Brik",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "postinstall": "patch-package"
   },
-  "author": "Kirill Brik",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "patch-package": "^8.0.1",
-    "vue": "^3.5.25"
+    "vue": "^3.5.22",
+    "patch-package": "^8.0.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "^7.1.11",
+    "vite-plugin-vue-devtools": "^8.0.3"
   }
 }

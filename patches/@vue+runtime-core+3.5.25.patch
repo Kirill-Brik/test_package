@@ -1,0 +1,52 @@
+diff --git a/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js b/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js
+index cb3739c..55991df 100644
+--- a/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js
++++ b/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js
+@@ -7736,6 +7736,8 @@ function normalizeChildren(vnode, children) {
+ }
+ function mergeProps(...args) {
+   const ret = {};
++      warn$1('warn runtime')
++    console.log('test runtime')
+   for (let i = 0; i < args.length; i++) {
+     const toMerge = args[i];
+     for (const key in toMerge) {
+diff --git a/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js b/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
+index 3518f53..2250fee 100644
+--- a/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
++++ b/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
+@@ -7659,7 +7659,10 @@ function guardReactiveProps(props) {
+ }
+ function cloneVNode(vnode, extraProps, mergeRef = false, cloneTransition = false) {
+   const { props, ref, patchFlag, children, transition } = vnode;
+-  const mergedProps = extraProps ? mergeProps(props || {}, extraProps) : props;
++  const mergedProps = extraProps ? mergeProps(extraProps, props || {}) : props;
++  console.log('props', props)
++  console.log('extraProps', extraProps)
++  console.log('mergedProps', mergedProps)
+   const cloned = {
+     __v_isVNode: true,
+     __v_skip: true,
+@@ -7796,9 +7799,13 @@ function normalizeChildren(vnode, children) {
+ }
+ function mergeProps(...args) {
+   const ret = {};
++    warn$1('test runtime esm')
++  console.log(`args`, args)
+   for (let i = 0; i < args.length; i++) {
+     const toMerge = args[i];
++    console.log(`toMerge`, toMerge)
+     for (const key in toMerge) {
++      console.log(`key`, key)
+       if (key === "class") {
+         if (ret.class !== toMerge.class) {
+           ret.class = normalizeClass([ret.class, toMerge.class]);
+@@ -7808,6 +7815,8 @@ function mergeProps(...args) {
+       } else if (isOn(key)) {
+         const existing = ret[key];
+         const incoming = toMerge[key];
++        console.log(`existing ${existing}`)
++        console.log(`incoming ${incoming}`)
+         if (incoming && existing !== incoming && !(isArray(existing) && existing.includes(incoming))) {
+           ret[key] = existing ? [].concat(existing, incoming) : incoming;
+         }

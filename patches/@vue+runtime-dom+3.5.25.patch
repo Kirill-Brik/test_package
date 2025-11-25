@@ -1,0 +1,26 @@
+diff --git a/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-browser.js b/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-browser.js
+index 94f0ee6..a3a85ea 100644
+--- a/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-browser.js
++++ b/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-browser.js
+@@ -9957,6 +9957,8 @@ function normalizeChildren(vnode, children) {
+   vnode.shapeFlag |= type;
+ }
+ function mergeProps(...args) {
++  warn$1('warn-esm')
++  console.log('test-esm')
+   const ret = {};
+   for (let i = 0; i < args.length; i++) {
+     const toMerge = args[i];
+diff --git a/node_modules/@vue/runtime-dom/dist/runtime-dom.global.js b/node_modules/@vue/runtime-dom/dist/runtime-dom.global.js
+index 1d98c0e..ef7a7f3 100644
+--- a/node_modules/@vue/runtime-dom/dist/runtime-dom.global.js
++++ b/node_modules/@vue/runtime-dom/dist/runtime-dom.global.js
+@@ -9923,6 +9923,8 @@ Component that was made reactive: `,
+     vnode.shapeFlag |= type;
+   }
+   function mergeProps(...args) {
++    warn$1('warn')
++    console.log('test')
+     const ret = {};
+     for (let i = 0; i < args.length; i++) {
+       const toMerge = args[i];
