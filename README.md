@@ -1,4 +1,4 @@
-# test-merge-props
+# fix-merge-props-vue
 Фикс мержа props vue
 
 ## Project Setup
